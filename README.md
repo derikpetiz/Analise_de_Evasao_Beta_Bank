@@ -83,7 +83,7 @@ A rotatividade de clientes (*churn*) impacta diretamente o faturamento, a margem
 
 ```text
 Analise_de_Evasao_Beta_Bank/
-├── Churn.csv                        # Conjunto de dados utilizado
+├── datasets/Churn.csv               # Conjunto de dados utilizado
 ├── notebook.ipynb                   # Notebook completo com análise, modelagem e gráficos
 ├── matriz_confusao_curva_roc.png    # Visualização das métricas finais de avaliação
 └── README.md                        # Documentação executiva do projeto
