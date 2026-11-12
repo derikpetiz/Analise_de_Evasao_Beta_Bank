@@ -53,15 +53,22 @@ A rotatividade de clientes (*churn*) impacta diretamente o faturamento, a margem
 
 ---
 
-## 6. Principais Resultados
+## 6. Principais Resultados e Visualizações
 
-| Modelo / Cenário (Teste Final) | $F_1$-score | AUC-ROC | Recall (Churn) | Precisão (Churn) |
+| Modelo / Cenário | $F_1$-score | AUC-ROC | Recall (Churn) | Precisão (Churn) |
 | :--- | :---: | :---: | :---: | :---: |
 | **Floresta Aleatória Baseline** *(Validação)* | 0.5705 | 0.8704 | - | - |
 | **Floresta Aleatória Otimizada (`Teste Final`)** | **0.6269** | **0.8598** | **67%** | **59%** |
 
-* **Meta Superada:** O modelo campeão (**Random Forest** com `max_depth=9`, `n_estimators=75` e `class_weight='balanced'`) atingiu **$F_1$-score = 0.6269**, superando a meta exigida de `0.59`.
-* **Poder Discriminatório:** A métrica **AUC-ROC de 0.8598** comprova excelente capacidade de separação probabilística entre clientes propensos à evasão e clientes leais.
+### 📊 Desempenho no Conjunto de Teste (Matriz de Confusão e Curva ROC)
+
+![Matriz de Confusão e Curva ROC](matriz_confusao_curva_roc.png)
+
+* **Análise da Matriz de Confusão (2.000 clientes no teste):**
+  * **Verdadeiros Positivos (273):** Clientes em risco real de saída que foram corretamente detectados pelo modelo (**Recall de 67%**).
+  * **Verdadeiros Negativos (1.402):** Clientes fiéis corretamente classificados como retidos.
+  * **Falsos Negativos (134) e Falsos Positivos (191):** Equilíbrio otimizado que garantiu um **$F_1$-score de 0.6269** (superando a meta mínima de `0.59`).
+* **Curva ROC (AUC = 0.8598):** O distanciamento expressivo da curva azul em relação à linha tracejada (classificador aleatório) comprova o forte poder discriminatório do modelo.
 
 ---
 
@@ -72,7 +79,19 @@ A rotatividade de clientes (*churn*) impacta diretamente o faturamento, a margem
 
 ---
 
-## 8. Como Executar o Projeto
+## 8. Estrutura do Repositório
+
+```text
+Analise_de_Evasao_Beta_Bank/
+├── Churn.csv                        # Conjunto de dados utilizado
+├── notebook.ipynb                   # Notebook completo com análise, modelagem e gráficos
+├── matriz_confusao_curva_roc.png    # Visualização das métricas finais de avaliação
+└── README.md                        # Documentação executiva do projeto
+```
+
+---
+
+## 9. Como Executar o Projeto
 
 ```bash
 # 1. Clone este repositório
@@ -86,3 +105,11 @@ pip install pandas numpy matplotlib seaborn scikit-learn jupyter
 
 # 4. Inicie o Jupyter Notebook
 jupyter notebook
+```
+
+---
+
+## 10. Autor
+**Derik Petiz**  
+* MBA em Data Science & Artificial Intelligence — TripleTen  
+* GitHub: [github.com/derikpetiz](https://github.com/derikpetiz)
